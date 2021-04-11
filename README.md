@@ -5,7 +5,7 @@ Hardware used in these test are:
 
 Atmega 328 ( new bootloader) + RFM95  433MHZ Aliexpress 
 
-[LINK]: https://www.aliexpress.com/item/33006101437.html?spm=a2g0s.9042311.0.0.27424c4dxecso6	"LINK"
+[LINK to Aliexpress]: https://www.aliexpress.com/item/33006101437.html?spm=a2g0s.9042311.0.0.27424c4dxecso6
 
 
 
@@ -13,6 +13,6 @@ Atmega 328 ( new bootloader) + RFM95  433MHZ Aliexpress
 
 Moteino Mega + RFM95 433MHZ  : 
 
-[]: https://lowpowerlab.com/shop/product/119	"Moteino Mega"
+[Link to LowPowerLab]: https://lowpowerlab.com/shop/product/119
 
 ![MoteinoMEGA pinout diagram](https://farm4.staticflickr.com/3871/14677033948_bb1d7cd8e5_c.jpg)
