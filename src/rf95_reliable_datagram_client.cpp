@@ -27,11 +27,11 @@
 #define F13 RH_RF95::BW62_5CR46SF10 //1549ms round trip 12bytes tx +  21 bytes back
 #define F14 RH_RF95::BW62_5CR45SF11 //2639ms round trip 12bytes tx +  21 bytes back
 #define F15 RH_RF95::BW125CR45SF11  //1320ms round trip 12bytes tx +  21 bytes back
-#define F16 RH_RF95::BW125CR45SF10  //120ms round trip 12bytes tx +  21 bytes back
-#define F17 RH_RF95::BW31_25CR45SF8 //703msround trip 12bytes tx +  21 bytes back
-#define F18 RH_RF95::BW41_7CR45SF9  //995ms round trip 12bytes tx +  21 bytes back
-#define F19 RH_RF95::BW41_7CR45SF10 //1979ms round trip 12bytes tx +  21 bytes back 
-
+#define F16 RH_RF95::BW125CR45SF10  //703ms round trip 12bytes tx +  21 bytes back
+#define F17 RH_RF95::BW31_25CR45SF8 //865msround trip 12bytes tx +  21 bytes back
+#define F18 RH_RF95::BW41_7CR45SF9  //113ms round trip 12bytes tx +  21 bytes back
+#define F19 RH_RF95::BW41_7CR45SF10 //2102ms round trip 12bytes tx +  21 bytes back 
+#define modemchoice  F11
 // Singleton instance of the radio driver
 RH_RF95 rf95;
 //RH_RF95 driver(5, 2); // Rocket Scream Mini Ultra Pro with the RFM95W
@@ -56,7 +56,7 @@ void setup()
   {
     if (!rf95.setFrequency(frequency))
       Serial.println("Unable to set RF95 frequency");
-    if (!rf95.setModemConfig(F18))
+    if (!rf95.setModemConfig(modemchoice))
       Serial.println("Invalid setModemConfig() option");
     rf95.setTxPower(TXPWR, false);
     Serial.println("RF95 radio initialized.");
@@ -84,6 +84,8 @@ void setup()
   // Detection shows no activity on the channel before transmitting by setting
   // the CAD timeout to non-zero:
   //  driver.setCADTimeout(10000);
+Serial.print("Reliable datagram client ready runnig Modem Choice: ");
+Serial.println(modemchoice);
 }
 
 uint8_t data[] = "Hello World!";
