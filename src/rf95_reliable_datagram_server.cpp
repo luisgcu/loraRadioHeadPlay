@@ -12,22 +12,22 @@
 #define CLIENT_ADDRESS 1
 #define SERVER_ADDRESS 2
 #define TXPWR 13
-#define F1 RH_RF95::Bw500Cr45Sf128
-#define F2 RH_RF95::Bw125Cr45Sf128
-#define F3 RH_RF95::Bw125Cr48Sf4096
-#define F4 RH_RF95::Bw31_25Cr48Sf512
-#define F5 RH_RF95::BW41_7Cr45Sf512
-#define F6 RH_RF95::BW62_5Cr45Sf10
-#define F7 RH_RF95::BW62_5Cr45Sf11
-#define F8 RH_RF95::BW256_7Cr45sf7
-#define F9 RH_RF95::BW125_7Cr45sf7
-#define F10 RH_RF95::BW62_57Cr45sf7
-#define F11 RH_RF95::BW125CR46SF9
-#define F12 RH_RF95::BW62_5CR45SF10
-#define F13 RH_RF95::BW62_5CR46SF10
-#define F14 RH_RF95::BW62_5CR45SF11
-#define F15 RH_RF95::BW125CR45SF11
-#define F16 RH_RF95::BW125CR45SF10
+#define F1 RH_RF95::Bw500CR45SF7
+#define F2 RH_RF95::BW31_25CR48SF9
+#define F3 RH_RF95::BW125CR48SF9
+#define F4 RH_RF95::BW125CR45SF11_ //1715ms round trip 12bytes tx +  21 bytes back
+#define F5 RH_RF95::BW41_7CR45SF8
+#define F6 RH_RF95::BW62_5CR45SF10
+#define F7 RH_RF95::BW62_5CR45SF11
+#define F8 RH_RF95::BW250CR45SF7
+#define F9 RH_RF95::BW125CR45SF7
+#define F10 RH_RF95::BW62_57CR45SF7
+#define F11 RH_RF95::BW125CR46SF9   //373ms round trip 12bytes tx +  21 bytes back
+#define F12 RH_RF95::BW62_5CR45SF10 //1403ms round trip 12bytes tx +  21 bytes back
+#define F13 RH_RF95::BW62_5CR46SF10 //1549ms round trip 12bytes tx +  21 bytes back
+#define F14 RH_RF95::BW62_5CR45SF11 //2639ms round trip 12bytes tx +  21 bytes back
+#define F15 RH_RF95::BW125CR45SF11  //1320ms round trip 12bytes tx +  21 bytes back
+#define F16 RH_RF95::BW125CR45SF10  //120ms round trip 12bytes tx +  21 bytes back
 #define F17 RH_RF95::BW31_25CR45SF8 //703msround trip 12bytes tx +  21 bytes back
 #define F18 RH_RF95::BW41_7CR45SF9  //995ms round trip 12bytes tx +  21 bytes back
 #define F19 RH_RF95::BW41_7CR45SF10 //1979ms round trip 12bytes tx +  21 bytes back 
@@ -56,7 +56,7 @@ void setup()
   {
     if (!rf95.setFrequency(frequency))
       Serial.println("Unable to set RF95 frequency");
-    if (!rf95.setModemConfig(F16))
+    if (!rf95.setModemConfig(F18))
       Serial.println("Invalid setModemConfig() option");
     rf95.setTxPower(TXPWR,false);
     Serial.println("RF95 radio initialized.");
