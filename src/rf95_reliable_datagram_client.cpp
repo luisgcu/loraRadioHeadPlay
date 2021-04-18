@@ -31,7 +31,7 @@
 #define F17 RH_RF95::BW31_25CR45SF8 //865msround trip 12bytes tx +  21 bytes back
 #define F18 RH_RF95::BW41_7CR45SF9  //113ms round trip 12bytes tx +  21 bytes back
 #define F19 RH_RF95::BW41_7CR45SF10 //2102ms round trip 12bytes tx +  21 bytes back 
-#define modemchoice  F11
+#define modemchoice  F5
 // Singleton instance of the radio driver
 RH_RF95 rf95;
 //RH_RF95 driver(5, 2); // Rocket Scream Mini Ultra Pro with the RFM95W
@@ -103,8 +103,13 @@ void loop()
     // Now wait for a reply from the server
     uint8_t len = sizeof(buf);
     uint8_t from;
+    
+
     if (manager.recvfromAckTimeout(buf, &len, 2000, &from))
     {
+      int8_t lasrssi =rf95.lastRssi();
+      int8_t lastsnr = rf95.lastSNR();
+      int offset = rf95.frequencyError();
       long time_flight = millis() - init_time;
       Serial.print("got reply from : 0x");
       Serial.print(from, HEX);
@@ -113,7 +118,14 @@ void loop()
       Serial.println();
       Serial.print("RoundTimeFligh is : ");
       Serial.print(time_flight);
-      Serial.println(" ms");
+      Serial.print(" ms");
+      Serial.print(", Last Rssi: "); 
+      Serial.print(lasrssi); 
+      Serial.print(", Last SNR: "); 
+      Serial.print(lastsnr);
+      Serial.print(", Frecuency Error: "); 
+      Serial.println(offset);
+
     }
     else
     {

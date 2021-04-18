@@ -31,7 +31,7 @@
 #define F17 RH_RF95::BW31_25CR45SF8 //703msround trip 12bytes tx +  21 bytes back
 #define F18 RH_RF95::BW41_7CR45SF9  //1113ms round trip 12bytes tx +  21 bytes back
 #define F19 RH_RF95::BW41_7CR45SF10 //2102ms round trip 12bytes tx +  21 bytes back 
-#define modemchoice  F11
+#define modemchoice  F5
 // Singleton instance of the radio driver
 RH_RF95 rf95(4, 2);
 //RH_RF95 driver(4, 2); // Rocket Scream Mini Ultra Pro with the RFM95W
